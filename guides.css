@@ -1,0 +1,452 @@
+#techknow-icon {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 20px;
+    margin-right: -73px;
+    padding: 10px;
+    position: fixed;
+    right: 10px;
+    top: 124px;
+    transition: all 0.3s ease-in-out 0s;
+    width: auto;
+    z-index: 999;
+}
+#techknow-icon:hover {
+    margin-right: -15px;
+}
+.guide-start {
+    background: none repeat scroll 0 0 #FFFFFF;
+    content: "Guide";
+    transform: rotate(90deg);
+    white-space: nowrap;
+}
+/*.techknow .ui-dialog-titlebar-close {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    visibility: hidden;
+}*/
+#close-button {
+	cursor: pointer;
+	font-family: "Trebuchet MS",Helvetica,sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	text-align: center;
+	top: -45px;
+	width: 25px;
+	z-index: 9999;
+}
+#close-button:before {
+    /*content: "x"; */
+	/* disabled content, using defaut jquery ui icon instead */
+}
+.techknow_guidetitle {
+    list-style: none outside none;
+}
+/*#techknow_buttonset {
+    bottom: 58px;
+    position: relative;
+    right: 2px;
+}*/
+#techknow_buttonset button:nth-of-type(2) {
+    float: right;
+}
+.button-style {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FEFEFE 2%, #DFDDDE 98%, #FFFFFF 100%) repeat scroll 0 0 transparent !important;
+    border: 1px solid #B0B0B0 !important;
+    border-radius: 5px 5px 5px 5px !important;
+    box-shadow: none !important;
+    color: #585858 !important;
+    cursor: pointer !important;
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif !important;
+    margin: 3px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 -1px 0 rgba(0, 0, 0, 0.7) !important;
+    width: 75px !important;
+}
+.button-style:active {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #EDEDED 2%, #CCCCCC 98%, #FFFFFF 100%) repeat scroll 0 0 transparent !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset !important;
+    color: #949494 !important;
+}
+.finish-button-style {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    color: #FFFFFF !important;
+}
+#arrow {
+}
+.topdialog {
+    margin-top: 26px;
+}
+.techknow_guidetitle {
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.techknow_guidetitle li {
+    list-style: decimal outside none;
+    margin: 10px 0 0 2.3em;
+}
+.techknow_guidetitle li:hover {
+    text-decoration: underline;
+}
+.techknow_title {
+    border-bottom: 2px solid black;
+    color: #5799DD;
+    font-family: Trebuchet MS;
+    font-size: 2.3em;
+    font-weight: lighter !important;
+    left: 16px;
+    line-height: 1.7em;
+    position: absolute;
+    text-align: center;
+    top: 20px !important;
+    width: 92%;
+    z-index: 9999;
+}
+#guides_list {
+    padding: 0;
+    width: 100%;
+}
+.techknow_lefttop {
+    background-image: url("images/s.png");
+    height: 30px;
+    left: 3%;
+    position: absolute;
+    top: -30px;
+    width: 43px;
+}
+.techknow_centertop {
+    background-image: url("images/s.png");
+    height: 30px;
+    left: 50%;
+    margin-left: -21px;
+    position: absolute;
+    top: -30px;
+    width: 43px;
+}
+.techknow_righttop {
+    background-image: url("images/s.png");
+    height: 30px;
+    left: 86%;
+    position: absolute;
+    top: -30px;
+    width: 43px;
+}
+.techknow_leftbottom {
+    background-image: url("images/n.png");
+    bottom: -30px;
+    height: 30px;
+    left: 4%;
+    position: absolute;
+    width: 43px;
+}
+.techknow_centerbottom {
+    background-image: url("images/n.png");
+    bottom: -30px;
+    height: 30px;
+    left: 50%;
+    margin-left: -21px;
+    position: absolute;
+    width: 43px;
+}
+.techknow_rightbottom {
+    background-image: url("images/n.png");
+    bottom: -30px;
+    height: 30px;
+    left: 81%;
+    margin-left: -21px;
+    position: absolute;
+    width: 43px;
+}
+.techknow_rightcenter {
+    background-image: url("images/w.png");
+    height: 40px;
+    margin-top: -22.5px;
+    position: absolute;
+    right: -29px;
+    top: 50%;
+    width: 29px;
+}
+.techknow_leftcenter {
+    background-image: url("images/e.png");
+    height: 40px;
+    left: -29px;
+    margin-top: -22.5px;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+}
+.techknow_highlight {
+    z-index: 9000 !important;
+}
+.techknow #tempstep {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif !important;
+    overflow: visible;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0 !important;
+    text-align: left !important;
+}
+#tempstep a {
+	cursor:pointer;
+	color:#76B0EC;
+}
+.techknow p {
+	margin:0em;
+	padding:6px 4px 0;
+	font-size:15px;
+}
+/*#tempstep h1 {
+    color: #5799DD;
+    position: absolute;
+    top: 2px;
+}
+#tempstep p {
+    font-size: 14.4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}*/
+#startstep {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+    /*border: 2px solid #000000 !important;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);*/
+    color: #000000;
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif !important;
+    letter-spacing: 0.1em;
+    /*padding: 46px 0 0;*/
+	/*border: 2px solid black;*/
+    border-radius: 10px 10px 10px 10px;
+	overflow:visible;
+}
+
+
+/*.techknow .guide_next, .guide_prev {
+    background: none repeat scroll 0 0 #AAAAAA;
+    border-radius: 0 0 5px 5px;
+    float: left;
+    margin-left: 10px;
+}
+.techknow .guide_fin {
+    background: none repeat scroll 0 0 #AAAAAA;
+    border-radius: 0 0 5px 5px;
+    float: right;
+    margin-right: 10px;
+}*/
+.techknow {
+    background: #fff repeat scroll 0 0 transparent;
+    border: 2px solid black;
+    box-shadow: 0 0 0 0 #CCCCCC;
+    outline: medium none;
+    overflow: visible;
+    z-index: 9999 !important;
+	-moz-box-shadow: 0px 2px 8px 2px #444;
+	-webkit-box-shadow: 0px 2px 8px 2px #444;
+	box-shadow: 0px 2px 8px 2px #444;
+}
+#ui-dialog-title-tempstep {
+	font-size:2.3em;
+	padding-top: 14px;
+}
+
+#ui-dialog-title-startstep {
+	font-size:2.3em;
+	padding-top: 10px;
+	width:95%;
+	text-align:center;
+}
+
+/*.techknow button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    box-shadow: 0 0 0 0 #CCCCCC;
+    outline: medium none;
+}*/
+/*.techknow #tempstep .ui-dialog .ui-dialog-titlebar {
+    box-shadow: 0 0 0 0 #FFFFFF !important;
+    position: relative !important;
+    top: 26px !important;
+    z-index: 2 !important;
+}*/
+/*.techknow #tempstep {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: visible;
+    position: relative;
+}*/
+/*.techknow .ui-dialog .ui-dialog-buttonpane {
+    background-image: none;
+    border-width: 1px 0 0;
+    bottom: -7px;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    z-index: 2000;
+}*/
+/*.ui-dialog-buttonpane button {
+    margin: 0;
+}
+.techknow .ui-widget-content {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    color: #333333 !important;
+}
+.techknow .ui-widget-header {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    color: #FFFFFF;
+    font-weight: bold;
+}*/
+
+/*.alter_guidebox_properties {
+	content: ""!important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.alter_guidebox_button_properties {
+	margin: 0.5em 0 0 !important;
+	padding: 0.3em 1em 0.5em 0.4em !important;
+}*/
+
+
+.techknow_error_box_shadow {
+    
+    box-shadow: 0px 0px 3px red !important;
+    border-color: #FF2931 !important;
+}
+
+.techknow_success_box_shadow {
+    
+    border-color: #09E826  !important;
+    box-shadow: 0px 0px 3px #03E821 !important;
+}
+
+#guides_response_message {
+
+    position: absolute; 
+    bottom: -73%; 
+    left: 3%; 
+}
+
+.techknow_input_response_position {
+    bottom: -36px;
+    position: absolute;
+}
+
+.techknow_valid_response_word {
+    color: #09E826;
+}
+
+.techknow_invalid_response_word {
+    color: #FF2931;
+}
+
+
+.guide-pulse {
+	-webkit-animation: guide-pulse 1s infinite;
+
+	-moz-animation: guide-pulse 1s infinite;
+
+	-o-animation: guide-pulse 1s infinite;
+
+	animation: guide-pulse 1s infinite;
+}
+
+@-webkit-keyframes guide-pulse {
+
+	from {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+	}
+
+	to {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+	}
+
+}
+
+@-moz-keyframes guide-pulse {
+
+	from {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+	}
+
+	to {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+	}
+
+}
+
+@-o-keyframes guide-pulse {
+
+	from {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+	}
+
+	to {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+	}
+
+}
+
+@keyframes guide-pulse {
+
+	from {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
+	}
+
+	to {
+		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
+	}
+
+}
+
+.continue-tour {
+	border: 2px solid #FFFFFF;
+    font-size: 16px;
+    height: 25px;
+    line-height: 1px;
+    margin-bottom: -5px;
+    margin-top: 20px;
+    padding: 16px 10px;
+    transform: scale(0.96);
+	
+	background: rgb(110,172,213);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZlYWNkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDc0YTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgb(110,172,213) 0%, rgb(45,116,161) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(110,172,213)), color-stop(100%,rgb(45,116,161)));
+	background: -webkit-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
+	background: -o-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
+	background: -ms-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
+	background: linear-gradient(to bottom,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eacd5', endColorstr='#2d74a1',GradientType=0 );
+
+}
+.continue-tour:hover {
+	background: rgb(103,170,211);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY3YWFkMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNDcxYTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgb(103,170,211) 0%, rgb(36,113,160) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(103,170,211)), color-stop(100%,rgb(36,113,160)));
+	background: -webkit-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
+	background: -o-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
+	background: -ms-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
+	background: linear-gradient(to bottom,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67aad3', endColorstr='#2471a0',GradientType=0 );
+}

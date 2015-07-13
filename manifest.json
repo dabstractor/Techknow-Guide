@@ -1,0 +1,45 @@
+{
+	"name": "Techknow Guides",
+	"manifest_version": 2,
+	"version": "1.0",
+	"description": "A guide system for popular web apps",
+	"icons": {"128": "icon_original_2.png"},
+	"browser_action": {
+		"default_icon" : "icon_original_2.png",
+		"default_title": "Techknow Guides",
+		"default_popup" : "popup.html"
+	},
+	"background": {
+		"scripts" : [
+			"background.js",
+			"jsonfn.js"
+		],
+		"persistent": false
+	},
+	"permissions": [
+		"cookies",
+		"tabs",
+		"activeTab",
+	    "http://fonts.googleapis.com/",
+	    "https://fonts.googleapis.com/",
+	    "https://*.facebook.com/*"
+
+	    
+	],
+	"content_scripts": [{
+		"matches": ["*://*/*"],
+		"js" : [
+			"jQuery1-7-min.js",
+			"jQuery-UI-min.js",
+			"jsonfn.js",
+			"guides.js",
+			"content.js"
+		],
+		"css" : [
+			"jquery-ui.css",
+			"guides.css", 
+			"guides-custom-ui.css"
+		]
+	}]
+
+}

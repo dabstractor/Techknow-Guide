@@ -1,0 +1,67 @@
+6,10c6
+< 	var port = chrome.runtime.connect({name: "techknow_onLoad"});
+< 	console.log("Port Set");
+< 	port.postMessage({request: "inject_guide_class"});
+< 	console.log("Message: request Set");
+< 	
+---
+> 	console.log(guides); 
+11a8,9
+> 	var port = chrome.runtime.connect({name: "knockknock"});
+> 	port.postMessage({joke: "Knock knock"});
+13,20c11,20
+< 		console.log("Port On Message Happening");
+< 
+< 
+< 		if (msg.response == "guides_injected_properly"){
+< 			console.log("Congrats Guys!");
+< 			// var tourGuider = [];
+< 			// console.log(tourGuider);
+< 			// guides.properlyCloseGuides();
+---
+> 		if (msg.question == "Who's there?"){
+> 			port.postMessage({answer: "Madame"});
+> 		}
+> 		else if (msg.question == "Madame who?"){
+> 			port.postMessage({answer: "Madame... Bovary"});
+> 		}
+> 		else if (msg.question == "I don't get it."){
+> 			var tourGuider = [];
+> 			console.log(tourGuider);
+> 			guides.properlyCloseGuides();
+22c22
+< 			// var guidesPassed = JSONfn.parse(msg.guides); 
+---
+> 			var guidesPassed = JSONfn.parse(msg.guides); 
+24c24
+< 			// console.log(guidesPassed);
+---
+> 			console.log(guidesPassed);
+26,28c26,28
+< 			// for (var i = 0; i <= guidesPassed.length - 1; i++) {	
+< 			// 	tourGuider.push(guidesPassed[i]);
+< 			// };
+---
+> 			for (var i = 0; i <= guidesPassed.length - 1; i++) {	
+> 				tourGuider.push(guidesPassed[i]);
+> 			};
+30,32c30,34
+< 			// console.log(tourGuider);
+< 			// guides.createCookie("guides.startGuide(0,1);");
+< 			// guides.init(tourGuider);
+---
+> 			console.log(tourGuider);
+> 			guides.createCookie("guides.startGuide(0,1);");
+> 			guides.init(tourGuider);
+> 		}
+> 		else if (msg.question == "MUHAHAHAHAHA!"){
+36a39
+> 	if(typeof(guides) !== 'undefined'){
+41a45,51
+> 	} else {
+> 		chrome.runtime.sendMessage({
+> 
+> 			myStatus: "No Go"
+> 
+> 		}); 
+> 	}

@@ -1,0 +1,44 @@
+@mixin border-rad($corner, $rad){
+		
+		@if $corner == t-l {
+			
+			border-top-left-radius: $rad;
+		}
+		@if $corner == t-r {
+			
+			border-top-right-radius: $rad;
+		}
+		
+		@if $corner == all {
+			
+			border-radius: $rad;
+		}
+
+}
+
+@mixin box-emboss($opacity, $opacity2){
+    box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+
+@mixin letterpress($opacity){
+    text-shadow: 1px 1px 1px rgba(255,255,255,$opacity);
+
+
+}
+
+@mixin white-stroke(){
+    text-shadow:
+	   -1px -1px 0 #FFF,  
+	    1px -1px 0 #FFF,
+	    -1px 1px 0 #FFF,
+	     1px 1px 0 #FFF;
+
+}
+
+@mixin clearfix{
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

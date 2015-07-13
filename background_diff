@@ -1,0 +1,70 @@
+445c445,447
+<   console.assert(port.name == "knockknock");
+---
+>   console.assert(port.name == "techknow_onLoad");
+>   
+> 
+447a450
+>     console.log(msg);
+449,477c452,477
+<     if (msg.joke == "Knock knock"){
+<       console.log("Getting to First Step");
+<       port.postMessage({question: "Who's there?"});
+<     }
+<     else if (msg.answer == "Madame"){
+<       console.log("Getting to Second Step");
+<       port.postMessage({question: "Madame who?"});
+<     }
+<     else if (msg.answer == "Madame... Bovary"){
+<       console.log("Getting to Final Step");
+<       if(curUrl == "facebook"){
+< 
+<         var guidePassed = JSONfn.stringify(tour);
+< 
+<         port.postMessage({
+<           question: "I don't get it.",
+<           guides: guidePassed
+<         });
+<       } else if (curUrl == "amazon") {
+<         console.log("we're at amazon");
+<         // port.postMessage({
+<         //   question: "I don't get it.",
+<         //   guides: facebookIntro
+<         // });
+<       } else {
+<         port.postMessage({
+<           question: "MUHAHAHAHAHA!",
+<         });
+<       }
+---
+>     if (msg.request == "inject_guide_class"){
+> 
+>       console.log('Getting to Injecting Guide Class');
+>       // console.log("Getting to Final Step");
+>       // if(curUrl == "facebook"){
+> 
+>       //   var guidePassed = JSONfn.stringify(tour);
+> 
+>       //   port.postMessage({
+>       //     response: "guides_injected_properly",
+>       //     guides:   guidePassed
+>       //   });
+>       // } else if (curUrl == "amazon") {
+>       //   console.log("we're at amazon");
+>       //   // port.postMessage({
+>       //   //   question: "I don't get it.",
+>       //   //   guides: facebookIntro
+>       //   // });
+>       // } else {
+>       //   port.postMessage({
+>       //     question: "MUHAHAHAHAHA!",
+>       //   });
+>       // }
+> 
+>     } else {
+>       console.log('Getting to error');
+479a480
+> 
+480a482,483
+> 
+>   

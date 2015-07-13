@@ -1,0 +1,314 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: montserrat-reg;
+  src: url("../font/montserrat-regular.woff");
+}
+#extension-container {
+  width: 580px;
+  height: 320px;
+  position: relative;
+}
+#extension-container #map-holder {
+  height: 100%;
+  width: 25%;
+  float: left;
+  position: relative;
+  background: #f0f0e1;
+  overflow: visible;
+  z-index: 2;
+}
+#extension-container #map-holder ul {
+  border-top-left-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  perspective: 100px;
+  overflow: visible;
+  padding: 2px;
+}
+#extension-container #map-holder ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1 1 100%;
+  cursor: pointer;
+  border-left: 1px solid #d2d2d2;
+  border-right: 1px solid #6e6e6e;
+  transition: transform 150ms ease;
+  transform-origin: 0% 0% 0%;
+  transform: scale(0.97);
+  background: #1fa0ff;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #1fa0ff 50%, #007FFF 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #1fa0ff), color-stop(100%, #007FFF));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #1fa0ff 50%, #007FFF 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #1fa0ff 50%, #007FFF 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #1fa0ff 50%, #007FFF 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #1fa0ff 50%, #007FFF 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1fa0ff', endColorstr='#007FFF',GradientType=1 );
+  /* IE6-9 */
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 2px solid #505050;
+}
+#extension-container #map-holder ul li span {
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 35%;
+  font-family: sans-serif;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px #333;
+  color: #e6e6ff;
+}
+#extension-container #map-holder ul li.selected:before {
+  width: 2px;
+  height: 2px;
+  border-left: 10px solid #1fa0ff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 26%;
+  right: -13px;
+  content: " ";
+}
+#extension-container #map-holder ul li:hover:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+#extension-container #map-holder ul li:hover {
+  z-index: 2;
+  box-shadow: 1px 2px 9px rgba(131, 131, 131, 0.6);
+  transform: scaleY(1.1);
+  transition: none;
+}
+#extension-container #map-holder ul li:hover span {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 1px 1px 2px #333;
+}
+#extension-container #map-holder ul li:hover:after {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scaleY(1.05);
+}
+#extension-container #map-holder ul li:active {
+  transform: scale(0.93);
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #a3a3a3;
+  border-top: 1px solid #a3a3a3;
+  border-bottom: 2px solid #b3b3b3;
+}
+#extension-container #map-holder ul li:active span {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8) 1px 1px 0px #000;
+}
+#extension-container #map-guides {
+  float: left;
+  height: 100%;
+  width: 75%;
+  background: #f0f0e1;
+  position: relative;
+}
+#extension-container #map-guides:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#extension-container #map-guides ul li {
+  width: 100%;
+  line-height: 1em;
+  height: auto;
+}
+#extension-container #map-guides ul li div:nth-of-type(1) {
+  width: 7.5%;
+  height: 20px;
+  position: relative;
+  float: left;
+  top: 14.5px;
+  left: 8px;
+  background: url("../img/arrows.svg") no-repeat -1px 0;
+}
+#extension-container #map-guides ul li div:nth-of-type(2) {
+  width: 92%;
+  height: 50px;
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  padding: 17px 0 0 3px;
+  font-size: 19px;
+  color: #45709c;
+  text-shadow: 1px 1px 1px #c8c8e1;
+}
+#extension-container #map-guides ul li .hovercon {
+  background: url("../img/arrows.svg") no-repeat -1px 0;
+}
+#extension-container #map-guides ul li * {
+  font-family: montserrat-reg;
+}
+#extension-container #map-guides ul li:hover {
+  cursor: pointer;
+}
+#extension-container #map-guides ul li:hover > div:nth-of-type(1) {
+  -webkit-animation: bounce 1s linear 1;
+  -moz-animation: bounce 1s linear 1;
+  -ms-animation: bounce 1s linear 1;
+  -o-animation: bounce 1s linear 1;
+  animation: bounce 1s linear 1;
+  transform: translateX(5px);
+  animation-fill-mode: forwards;
+}
+#extension-container #map-guides ul li:hover > div:nth-of-type(2) {
+  text-shadow: 2px 2px 1px #cdcdcd;
+}
+#extension-container li {
+  list-style: none;
+}
+#extension-container * {
+  font-family: montserrat;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+}
+@-moz-keyframes bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+}
+@-ms-keyframes bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+}
+@-o-keyframes bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+}
+/* style */
+
+/*# sourceMappingURL=extension.css.map */
