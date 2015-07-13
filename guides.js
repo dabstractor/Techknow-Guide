@@ -12,7 +12,10 @@ function Guide(){
 
 } // This is the end of the Guides Class
 
-/*************************** init ************************************
+
+///////////////////////// Management //////////////////////////
+
+/************************ init ************************************
  * Function Type: Method
  * Objective    : Initiates tour process
  *******************************************************************/
@@ -29,7 +32,7 @@ function Guide(){
  	}
  };
 
-/*************************** buildTour ***************************
+/************************ buildTour ***************************
  * Function Type: Method
  * Objective    : Builds the trip the user is about to set out on
  **************************  Parameters  ***************************
@@ -44,7 +47,7 @@ function Guide(){
  	};
  };
 
-/*************************** getReadyToSee *************************
+/************************ getReadyToSee *************************
  * Function Type: Method
  * Objective    : Preps coordinates for next tour
  **************************  Parameters  ***************************
@@ -67,7 +70,7 @@ function Guide(){
  	this.startTour();
  };
 
-/*************************** startTour **************************
+/************************ startTour **************************
  * Function Type: Method
  * Objective    : Starts the tour in motion
  *******************************************************************/
@@ -76,7 +79,7 @@ function Guide(){
  	if(this.getCookie() !== '') this.deleteCookie();
  };
 
-/*************************** render ****************************
+/************************ render ****************************
  * Function Type: Method
  * Objective    : Renders the current step.
  *******************************************************************/
@@ -245,7 +248,7 @@ function Guide(){
  };
 
 
-
+///////////////////////// Process Managers //////////////////////////
 
 
 /************************ Safety Modules **********************
@@ -571,7 +574,7 @@ function Guide(){
  	return this.playing;
  };
 
-/********************************* qwe *******************/
+/************************ qwe *******************/
 	
 
  Guide.prototype.buildEvent = function(obj){
@@ -604,6 +607,7 @@ function Guide(){
  };
 
 
+///////////////////////// Workers //////////////////////////
 
 
 /************************ Setters *************************  
@@ -787,6 +791,10 @@ function Guide(){
 
  Guide.prototype.isPlaying = Guide.prototype.getPlaying;
 
+ Guide.prototype.guideIsPaused = function() {
+ 	return this.isPlaying() == "false";
+ };
+
 
  Guide.prototype.renderFinishButton = function() {
 	return {
@@ -795,18 +803,19 @@ function Guide(){
 		click: function() {
 
 			if (highlight) {
-				guides.highlight(DOMhighlighted, false);
+				this.highlight(DOMhighlighted, false);
 			}
-			if(!guides.playing){	
+			
+			if(this.guideIsPaused()){	
 				try{ 
-					var faction = guides.stepcontainer[guides.currentstep].faction;
+					var faction = this.getCurrentStepObj().faction;
 					eval(faction()); 
 				}catch(e){ }
-				guides.currentstep = guides.currentstep + 1;
+				this.incrementCurrentStep();
 			}
 
 			jQuery(this).dialog('destroy').remove();
-			guides.properlyCloseGuides();   
+			this.properlyCloseGuides();  
 
 		},
 		open: function() {
@@ -864,86 +873,86 @@ function Guide(){
  };
 
 
-Guide.prototype.renderContinueButton = function() {
-	return {
-		text: "Continue Tour", 
-		id: 'next_button',
-		class: 'guide_prev button-style',
-		click: function() {
-
-			if (highlight) {
-				this.highlight(DOMhighlighted, false);
-			}
-
-			if(!this.isPlaying()){	
-				try{ 
-					var faction = this.getCurrentStepObj().faction;
-					eval(faction()); 
-				}catch(e){ }
-				this.incrementCurrentStep();
-			}
-
-			this.play();
-			this.next(this.getCurrentStepObj());	
-		},
-		open: function() {},
-	}
-};
-
-
-Guide.prototype.renderBackButton = function() {
-	return {
-		text: "Back", 
-		id: 'back_button',
-		class: 'guide_back button-style',
-		click: function() {
-
-
-		if (highlight) {
-			this.highlight(DOMhighlighted, false);
-		}
-
-		if(!this.isPlaying()){	
-			try{ 
-				var paction = this.getCurrentStepObj().paction;
-				eval(paction()); 
-			}catch(e){ }
-
-			this.decrementCurrentStep();
-		}
-
-
-		if(delayPaction != 0){
-
-			jQuery('#dialogBox, #tempstep').remove();
-
-			setTimeout(function() {
-
-				this.play();
-				this.render();
-						// this.previous(this.getCurrentStep());   
-
-				}, delayPaction);
-
-		} else {
-			this.play();
-			this.render();
-					// this.previous(this.getCurrentStep());
-
-			}
-
-		},
-		open: function() {
-
-			if(hidePreviousButton){
-
-				jQuery(this).fadeTo(0,0)
-				.attr("disabled","disabled")
-				.css("cursor", "default");
-			}
-		},
-	}
-};
+ Guide.prototype.renderContinueButton = function() {
+ 	return {
+ 		text: "Continue Tour", 
+ 		id: 'next_button',
+ 		class: 'guide_prev button-style',
+ 		click: function() {
+ 
+ 			if (highlight) {
+ 				this.highlight(DOMhighlighted, false);
+ 			}
+ 
+ 			if(!this.isPlaying()){	
+ 				try{ 
+ 					var faction = this.getCurrentStepObj().faction;
+ 					eval(faction()); 
+ 				}catch(e){ }
+ 				this.incrementCurrentStep();
+ 			}
+ 
+ 			this.play();
+ 			this.next(this.getCurrentStepObj());	
+ 		},
+ 		open: function() {},
+ 	}
+ };
+ 
+ 
+ Guide.prototype.renderBackButton = function() {
+ 	return {
+ 		text: "Back", 
+ 		id: 'back_button',
+ 		class: 'guide_back button-style',
+ 		click: function() {
+ 
+ 
+ 		if (highlight) {
+ 			this.highlight(DOMhighlighted, false);
+ 		}
+ 
+ 		if(!this.isPlaying()){	
+ 			try{ 
+ 				var paction = this.getCurrentStepObj().paction;
+ 				eval(paction()); 
+ 			}catch(e){ }
+ 
+ 			this.decrementCurrentStep();
+ 		}
+ 
+ 
+ 		if(delayPaction != 0){
+ 
+ 			jQuery('#dialogBox, #tempstep').remove();
+ 
+ 			setTimeout(function() {
+ 
+ 				this.play();
+ 				this.render();
+ 						// this.previous(this.getCurrentStep());   
+ 
+ 				}, delayPaction);
+ 
+ 		} else {
+ 			this.play();
+ 			this.render();
+ 					// this.previous(this.getCurrentStep());
+ 
+ 			}
+ 
+ 		},
+ 		open: function() {
+ 
+ 			if(hidePreviousButton){
+ 
+ 				jQuery(this).fadeTo(0,0)
+ 				.attr("disabled","disabled")
+ 				.css("cursor", "default");
+ 			}
+ 		},
+ 	}
+ };
 
 /************************ Ownerships *******************************  
  *
