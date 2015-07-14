@@ -1244,7 +1244,11 @@
 
     // .guide-close {
     a.ui-dialog-titlebar-close {
-        &>span {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        &>* {
             width: 22px;
             height: 22px;
             border-radius: 50%;
@@ -1252,8 +1256,8 @@
             position: absolute;
             top: -11px;
             right: -11px;
-            background: url(x.svg) norepeat -11px -11px;    
-            background-image: url(x.svg);
+            // background: url(x.svg) norepeat -11px -11px;    
+            // background-image: url(x.svg);
             background-repeat: norepeat;
             cursor: pointer;
             transform: scale(1);

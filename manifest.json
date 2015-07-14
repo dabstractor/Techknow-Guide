@@ -41,6 +41,8 @@
 			"assets/css/guides.css"
 			// "guides-custom-ui.css"
 		]
-	}]
-
+	}],
+	"web_accessible_resources": [
+		"x.svg"
+	]
 }

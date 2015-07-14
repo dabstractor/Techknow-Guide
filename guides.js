@@ -177,14 +177,24 @@ function Guide(){
  
  			});
  
- 			jQuery('#guide_close').click(function(){
+ 			$closeButton = jQuery(".ui-dialog-titlebar-close>span");
+ 			console.log( "$closeButton: " );
+ 			console.log( $closeButton );
+
+ 			// $closeButton
+ 			// 	.css("background-color", "red")
+ 			// console.log(chrome);
+ 			// console.log( 'chrome.extension.getURL("x.svg"): ' );
+ 			// console.log( chrome.extension.getURL('x.svg') );
+ 			$closeButton.css("background-image", "url(" + chrome.extension.getURL("x.svg") + ")");
+ 			$closeButton.click(function(){
  				this.properlyCloseGuides(DOMhighlighted);
  			});
  
  			jQuery(document).live("onchange",function(e){       
  				this.properlyCloseGuides(DOMhighlighted);
  			});
- render
+		 // render
  		},
  		close:function(){	
  			this.deleteCookie(); 

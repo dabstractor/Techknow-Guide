@@ -86,7 +86,12 @@
   user-select: none;
   position: absolute;
 }
-.techknow a.ui-dialog-titlebar-close > span {
+.techknow a.ui-dialog-titlebar-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.techknow a.ui-dialog-titlebar-close > * {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -94,17 +99,15 @@
   position: absolute;
   top: -11px;
   right: -11px;
-  background: url(x.svg) norepeat -11px -11px;
-  background-image: url(x.svg);
   background-repeat: norepeat;
   cursor: pointer;
   transform: scale(1);
 }
-.techknow a.ui-dialog-titlebar-close > span:hover {
+.techknow a.ui-dialog-titlebar-close > *:hover {
   transform: scale(1.04) translateX(-0.5px) translateY(-0.5px);
   box-shadow: 1px 1px 3px black;
 }
-.techknow a.ui-dialog-titlebar-close > span:hover:after {
+.techknow a.ui-dialog-titlebar-close > *:hover:after {
   content: " ";
   position: absolute;
   width: 100%;
