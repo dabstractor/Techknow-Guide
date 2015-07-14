@@ -1239,38 +1239,37 @@
 
 
     position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 0.2em;
-    width: 300px;
-    overflow: hidden;
+    // top: 0px;
+    // left: 0px;
 
     // .guide-close {
     a.ui-dialog-titlebar-close {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        box-shadow: 1px 1px 2px black;
-        position: absolute;
-        top: -11px;
-        right: -11px;
-        background: url(x.svg) norepeat -11px -11px;    
-        background-image: url(x.svg);
-        background-repeat: norepeat;
-        cursor: pointer;
-        transform: scale(1);
+        &>span {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            box-shadow: 1px 1px 2px black;
+            position: absolute;
+            top: -11px;
+            right: -11px;
+            background: url(x.svg) norepeat -11px -11px;    
+            background-image: url(x.svg);
+            background-repeat: norepeat;
+            cursor: pointer;
+            transform: scale(1);
 
-        &:hover {
-            transform: scale(1.04) translateX(-.5px) translateY(-.5px);
-            box-shadow: 1px 1px 3px black;
+            &:hover {
+                transform: scale(1.04) translateX(-.5px) translateY(-.5px);
+                box-shadow: 1px 1px 3px black;
 
-            &:after {
-                content: " ";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(255,255,255,0.1);
-                border-radius: 50%;
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(255,255,255,0.1);
+                    border-radius: 50%;
+                }
             }
         }
 

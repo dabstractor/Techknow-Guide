@@ -158,33 +158,30 @@ function Guide(){
  			$tempstep.parent().append(function() {
  				return $('<div id="guide_button"></div>')
  			});
- 				// .css("background-color", "red")
+			// .css("background-color", "red")
  			// Loop through buttons and make them do shit.
  			// _.each(buttons, function(i, key){
- 
  			// })
  
  			try { 
  				var onOpen = this.getCurrentStepObj().onOpen;
  				eval(onOpen()); 
- 			} catch(e) { }
+ 			} catch(e) {
+ 			}
  
  			jQuery(document).keyup(function(e){
  
  				if(e.keyCode == 27){
- 
  					this.properlyCloseGuides(DOMhighlighted);
  				}
  
  			});
  
  			jQuery('#guide_close').click(function(){
- 
  				this.properlyCloseGuides(DOMhighlighted);
  			});
  
  			jQuery(document).live("onchange",function(e){       
- 
  				this.properlyCloseGuides(DOMhighlighted);
  			});
  render
