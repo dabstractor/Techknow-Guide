@@ -1,277 +1,17 @@
-
-#techknow-icon {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 2px solid #000000;
-    border-radius: 5px 5px 5px 5px;
-    cursor: pointer;
-    font-family: Tahoma,Geneva,sans-serif;
-    font-size: 20px;
-    margin-right: -73px;
-    padding: 10px;
-    position: fixed;
-    right: 10px;
-    top: 124px;
-    transition: all 0.3s ease-in-out 0s;
-    width: auto;
-    z-index: 999;
-}
-#techknow-icon:hover {
-    margin-right: -15px;
-}
-.guide-start {
-    background: none repeat scroll 0 0 #FFFFFF;
-    content: "Guide";
-    transform: rotate(90deg);
-    white-space: nowrap;
-}
 /*.techknow .ui-dialog-titlebar-close {
     background: none repeat scroll 0 0 transparent;
     border: medium none;
     visibility: hidden;
 }*/
-#close-button {
-	cursor: pointer;
-	font-family: "Trebuchet MS",Helvetica,sans-serif;
-	font-size: 18px;
-	font-weight: bold;
-	height: 25px;
-	position: absolute;
-	right: 10px;
-	text-align: center;
-	top: -45px;
-	width: 25px;
-	z-index: 9999;
-}
-#close-button:before {
-    /*content: "x"; */
-	/* disabled content, using defaut jquery ui icon instead */
-}
-.techknow_guidetitle {
-    list-style: none outside none;
-}
 /*#techknow_buttonset {
     bottom: 58px;
     position: relative;
     right: 2px;
 }*/
-#techknow_buttonset button:nth-of-type(2) {
-    float: right;
-}
-.button-style {
-    background: linear-gradient(to bottom, #FFFFFF 0%, #FEFEFE 2%, #DFDDDE 98%, #FFFFFF 100%) repeat scroll 0 0 transparent !important;
-    border: 1px solid #B0B0B0 !important;
-    border-radius: 5px 5px 5px 5px !important;
-    box-shadow: none !important;
-    color: #585858 !important;
-    cursor: pointer !important;
-    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif !important;
-    margin: 3px !important;
-    padding: 0 !important;
-    text-align: center !important;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 -1px 0 rgba(0, 0, 0, 0.7) !important;
-    width: 75px !important;
-}
-.button-style:active {
-    background: linear-gradient(to bottom, #FFFFFF 0%, #EDEDED 2%, #CCCCCC 98%, #FFFFFF 100%) repeat scroll 0 0 transparent !important;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset !important;
-    color: #949494 !important;
-}
-.finish-button-style {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    color: #FFFFFF !important;
-}
-#arrow {
-}
-.topdialog {
-    margin-top: 26px;
-}
-.techknow_guidetitle {
-    cursor: pointer;
-    font-size: 1.2em;
-}
-.techknow_guidetitle li {
-    list-style: decimal outside none;
-    margin: 10px 0 0 2.3em;
-}
-.techknow_guidetitle li:hover {
-    text-decoration: underline;
-}
-.techknow_title {
-    border-bottom: 2px solid black;
-    color: #5799DD;
-    font-family: Trebuchet MS;
-    font-size: 2.3em;
-    font-weight: lighter !important;
-    left: 16px;
-    line-height: 1.7em;
-    position: absolute;
-    text-align: center;
-    top: 20px !important;
-    width: 92%;
-    z-index: 9999;
-}
-#guides_list {
-    padding: 0;
-    width: 100%;
-}
-.techknow_lefttop {
-    background-image: url("images/s.png");
-    height: 30px;
-    left: 3%;
-    position: absolute;
-    top: -30px;
-    width: 43px;
-}
-.techknow_centertop {
-    background-image: url("images/s.png");
-    height: 30px;
-    left: 50%;
-    margin-left: -21px;
-    position: absolute;
-    top: -30px;
-    width: 43px;
-}
-.techknow_righttop {
-    background-image: url("images/s.png");
-    height: 30px;
-    left: 86%;
-    position: absolute;
-    top: -30px;
-    width: 43px;
-}
-.techknow_leftbottom {
-    background-image: url("images/n.png");
-    bottom: -30px;
-    height: 30px;
-    left: 4%;
-    position: absolute;
-    width: 43px;
-}
-.techknow_centerbottom {
-    background-image: url("images/n.png");
-    bottom: -30px;
-    height: 30px;
-    left: 50%;
-    margin-left: -21px;
-    position: absolute;
-    width: 43px;
-}
-.techknow_rightbottom {
-    background-image: url("images/n.png");
-    bottom: -30px;
-    height: 30px;
-    left: 81%;
-    margin-left: -21px;
-    position: absolute;
-    width: 43px;
-}
-.techknow_rightcenter {
-    background-image: url("images/w.png");
-    height: 40px;
-    margin-top: -22.5px;
-    position: absolute;
-    right: -29px;
-    top: 50%;
-    width: 29px;
-}
-.techknow_leftcenter {
-    background-image: url("images/e.png");
-    height: 40px;
-    left: -29px;
-    margin-top: -22.5px;
-    position: absolute;
-    top: 50%;
-    width: 30px;
-}
 .techknow_highlight {
-    z-index: 9000 !important;
-}
-.techknow #tempstep {
-	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif !important;
-    overflow: visible;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 0 !important;
-    text-align: left !important;
-}
-#tempstep a {
-	cursor:pointer;
-	color:#76B0EC;
-}
-.techknow p {
-	margin:0em;
-	padding:6px 4px 0;
-	font-size:15px;
-}
-/*#tempstep h1 {
-    color: #5799DD;
-    position: absolute;
-    top: 2px;
-}
-#tempstep p {
-    font-size: 14.4px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
-}*/
-#startstep {
-    background: none repeat scroll 0 0 #FFFFFF !important;
-    /*border: 2px solid #000000 !important;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);*/
-    color: #000000;
-    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif !important;
-    letter-spacing: 0.1em;
-    /*padding: 46px 0 0;*/
-	/*border: 2px solid black;*/
-    border-radius: 10px 10px 10px 10px;
-	overflow:visible;
+  z-index: 9000 !important;
 }
 
-
-/*.techknow .guide_next, .guide_prev {
-    background: none repeat scroll 0 0 #AAAAAA;
-    border-radius: 0 0 5px 5px;
-    float: left;
-    margin-left: 10px;
-}
-.techknow .guide_fin {
-    background: none repeat scroll 0 0 #AAAAAA;
-    border-radius: 0 0 5px 5px;
-    float: right;
-    margin-right: 10px;
-}*/
-.techknow {
-    background: #fff repeat scroll 0 0 transparent;
-    border: 2px solid black;
-    box-shadow: 0 0 0 0 #CCCCCC;
-    outline: medium none;
-    overflow: visible;
-    z-index: 9999 !important;
-	-moz-box-shadow: 0px 2px 8px 2px #444;
-	-webkit-box-shadow: 0px 2px 8px 2px #444;
-	box-shadow: 0px 2px 8px 2px #444;
-}
-#ui-dialog-title-tempstep {
-	font-size:2.3em;
-	padding-top: 14px;
-}
-
-#ui-dialog-title-startstep {
-	font-size:2.3em;
-	padding-top: 10px;
-	width:95%;
-	text-align:center;
-}
-
-/*.techknow button {
-    background: none repeat scroll 0 0 transparent;
-    border: medium none;
-    box-shadow: 0 0 0 0 #CCCCCC;
-    outline: medium none;
-}*/
 /*.techknow #tempstep .ui-dialog .ui-dialog-titlebar {
     box-shadow: 0 0 0 0 #FFFFFF !important;
     position: relative !important;
@@ -307,147 +47,270 @@
     color: #FFFFFF;
     font-weight: bold;
 }*/
-
 /*.alter_guidebox_properties {
-	content: ""!important;
-	margin: 0px !important;
-	padding: 0px !important;
+    content: ""!important;
+    margin: 0px !important;
+    padding: 0px !important;
 }
 
 .alter_guidebox_button_properties {
-	margin: 0.5em 0 0 !important;
-	padding: 0.3em 1em 0.5em 0.4em !important;
+    margin: 0.5em 0 0 !important;
+    padding: 0.3em 1em 0.5em 0.4em !important;
 }*/
-
-
-.techknow_error_box_shadow {
-    
-    box-shadow: 0px 0px 3px red !important;
-    border-color: #FF2931 !important;
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #141823;
+  opacity: 0.7;
 }
 
-.techknow_success_box_shadow {
-    
-    border-color: #09E826  !important;
-    box-shadow: 0px 0px 3px #03E821 !important;
+/* Icons
+----------------------------------*/
+/* Misc visuals
+----------------------------------*/
+.techknow {
+  width: 453px;
+  height: 268px;
+  font-family: sans-serif, Arial;
+  background-color: #f4f4ff;
+  border: 2px solid #1e1e1e;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: default;
+  overflow: visible;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 0.2em;
+  width: 300px;
+  overflow: hidden;
+}
+.techknow a.ui-dialog-titlebar-close {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px black;
+  position: absolute;
+  top: -11px;
+  right: -11px;
+  background: url(x.svg) norepeat -11px -11px;
+  background-image: url(x.svg);
+  background-repeat: norepeat;
+  cursor: pointer;
+  transform: scale(1);
+}
+.techknow a.ui-dialog-titlebar-close:hover {
+  transform: scale(1.04) translateX(-0.5px) translateY(-0.5px);
+  box-shadow: 1px 1px 3px black;
+}
+.techknow a.ui-dialog-titlebar-close:hover:after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.techknow a.ui-dialog-titlebar-close:active {
+  transform: scale(0.9);
+  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 1px black;
+}
+.techknow a.ui-dialog-titlebar-close:active:after {
+  background-color: rgba(255, 64, 143, 0.2);
+}
+.techknow .ui-dialog-titlebar {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #009bff;
+  height: 45px;
+  border-bottom: 2px solid #1e1e1e;
+}
+.techknow .ui-dialog-titlebar > span {
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-family: sans-serif, Arial;
+  display: block;
+  padding: 9px 19px;
+  color: #f4f4f4;
+}
+.techknow .guide-content {
+  width: 100%;
+  position: relative;
+  height: 225px;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.techknow .guide-content .guide-text-container {
+  width: 77%;
+  height: 65%;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 14px;
+}
+.techknow .guide-content .guide-share-icons {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 9px;
+}
+.techknow .guide-content .guide-share-icons > div {
+  cursor: pointer;
+  margin: 0 5px;
+  width: 46px;
+  height: 46px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  transition: all .5s ease;
+}
+.techknow .guide-content .guide-share-icons > div:hover {
+  transform: scale(1.02);
+  box-shadow: -1px 1px 3px black, 1px -1px 3px black;
+  transition: all 0.1s ease;
+}
+.techknow .guide-content .guide-share-icons > div:hover:after {
+  display: block;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.techknow .guide-content .guide-share-icons > div:active {
+  transition: none;
+  transform: scale(0.95);
+  box-shadow: 0px 1px 2px black, 0px -1px 2px black;
+}
+.techknow .guide-content .guide-share-icons > div:active:after {
+  background-color: rgba(190, 190, 190, 0.2);
+}
+.techknow .guide-content .guide-share-icons > div:nth-of-type(1) {
+  background-image: url(icon-facebook.svg);
+}
+.techknow .guide-content .guide-share-icons > div:nth-of-type(2) {
+  background-image: url(icon-twitter.svg);
+}
+.techknow .guide-content .guide-share-icons > div:nth-of-type(3) {
+  background-image: url(icon-linkedin.svg);
+}
+.techknow .guide-nav-container {
+  display: block;
+  position: absolute;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  width: 48px;
+}
+.techknow .guide-nav-container:hover {
+  cursor: pointer;
+}
+.techknow .guide-nav-container:hover .bar {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity .7s ease, transform .5s;
+  transition-delay: 150ms;
+}
+.techknow .guide-nav-container:active .semi {
+  box-shadow: 0px 0px 6px black;
+  width: 54px;
+  height: 54px;
+  top: 72px;
+}
+.techknow .guide-nav-container:active .semi img {
+  height: 20px;
+}
+.techknow .guide-nav-container:active .bar {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+.techknow .guide-nav-container.left {
+  width: 78px;
+  left: 0;
+  overflow: hidden;
+  padding-right: 76px;
+}
+.techknow .guide-nav-container.left .semi {
+  left: -24px;
+  box-shadow: 1px 0px 8px black;
+  border-radius: 0 50% 50% 0;
+  border-left: 0;
+}
+.techknow .guide-nav-container.left .semi img {
+  transform: scale(1.2) translateX(25px) rotateY(180deg);
+}
+.techknow .guide-nav-container.left .semi img:hover {
+  cursor: pointer;
+}
+.techknow .guide-nav-container.left .bar {
+  transform: translateX(-100%);
+  left: 0px;
+}
+.techknow .guide-nav-container.left .bar span {
+  right: 0;
+}
+.techknow .guide-nav-container.left:hover .bar {
+  transform: translateX(0%);
+}
+.techknow .guide-nav-container.right {
+  right: 0;
+  overflow: hidden;
+  padding-left: 76px;
+}
+.techknow .guide-nav-container.right .semi {
+  box-shadow: -1px 0px 8px black;
+  margin-left: 10px;
+  border-radius: 50% 0 0 50%;
+  border-right: 0;
+}
+.techknow .guide-nav-container.right .semi img {
+  transform: scale(1.2) translateX(9px);
+}
+.techknow .guide-nav-container.right .bar {
+  right: 0;
+}
+.techknow .guide-nav-container .semi {
+  background-color: #ffffff;
+  border: 4px solid #00afff;
+  width: 56px;
+  height: 56px;
+  position: relative;
+  top: 71px;
+}
+.techknow .guide-nav-container .semi img {
+  position: absolute;
+  top: 17px;
+  z-index: 2;
+}
+.techknow .guide-nav-container .bar {
+  position: absolute;
+  top: 85px;
+  font-size: 16px;
+  font-style: sans-serif, Arial;
+  width: 95px;
+  height: 38px;
+  background-color: rgba(30, 30, 30, 0.9);
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all .7s ease;
+  transition-delay: 0.6s;
+}
+.techknow .guide-nav-container .bar span {
+  position: absolute;
+  top: -4px;
+  padding: 10px 6px;
+  font-size: 22px;
+  text-shadow: 0px 0px 2px #00afff;
 }
 
-#guides_response_message {
-
-    position: absolute; 
-    bottom: -73%; 
-    left: 3%; 
-}
-
-.techknow_input_response_position {
-    bottom: -36px;
-    position: absolute;
-}
-
-.techknow_valid_response_word {
-    color: #09E826;
-}
-
-.techknow_invalid_response_word {
-    color: #FF2931;
-}
-
-
-.guide-pulse {
-	-webkit-animation: guide-pulse 1s infinite;
-
-	-moz-animation: guide-pulse 1s infinite;
-
-	-o-animation: guide-pulse 1s infinite;
-
-	animation: guide-pulse 1s infinite;
-}
-
-@-webkit-keyframes guide-pulse {
-
-	from {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-	}
-
-	to {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-	}
-
-}
-
-@-moz-keyframes guide-pulse {
-
-	from {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-	}
-
-	to {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-	}
-
-}
-
-@-o-keyframes guide-pulse {
-
-	from {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-	}
-
-	to {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-	}
-
-}
-
-@keyframes guide-pulse {
-
-	from {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 0);
-	}
-
-	to {
-		-webkit-box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-                box-shadow:  0px 0px 10px 3px rgba(255, 204, 0, 1);
-	}
-
-}
-
-.continue-tour {
-	border: 2px solid #FFFFFF;
-    font-size: 16px;
-    height: 25px;
-    line-height: 1px;
-    margin-bottom: -5px;
-    margin-top: 20px;
-    padding: 16px 10px;
-    transform: scale(0.96);
-	
-	background: rgb(110,172,213);
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZlYWNkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDc0YTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  rgb(110,172,213) 0%, rgb(45,116,161) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(110,172,213)), color-stop(100%,rgb(45,116,161)));
-	background: -webkit-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
-	background: -o-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
-	background: -ms-linear-gradient(top,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
-	background: linear-gradient(to bottom,  rgb(110,172,213) 0%,rgb(45,116,161) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eacd5', endColorstr='#2d74a1',GradientType=0 );
-
-}
-.continue-tour:hover {
-	background: rgb(103,170,211);
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY3YWFkMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNDcxYTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  rgb(103,170,211) 0%, rgb(36,113,160) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(103,170,211)), color-stop(100%,rgb(36,113,160)));
-	background: -webkit-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
-	background: -o-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
-	background: -ms-linear-gradient(top,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
-	background: linear-gradient(to bottom,  rgb(103,170,211) 0%,rgb(36,113,160) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67aad3', endColorstr='#2471a0',GradientType=0 );
-}
+/*# sourceMappingURL=guides.css.map */

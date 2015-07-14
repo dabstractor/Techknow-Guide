@@ -36,9 +36,10 @@
 			"content.js"
 		],
 		"css" : [
-			"jquery-ui.css",
-			"guides.css", 
-			"guides-custom-ui.css"
+			// "jquery-ui.css",
+			// "guides.css", 
+			"assets/css/guides.css"
+			// "guides-custom-ui.css"
 		]
 	}]
 

@@ -334,9 +334,8 @@ button.techknow .ui-button::-moz-focus-inner {
 .techknow .ui-dialog .ui-dialog-buttonpane button {
 	margin: .5em .4em .5em 0;
 	cursor: pointer;
-	
-	
 }
+
 .techknow .ui-dialog .ui-resizable-se {
 	width: 12px;
 	height: 12px;

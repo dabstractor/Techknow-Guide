@@ -129,12 +129,12 @@ function Guide(){
  		this.highlight(DOMhighlighted, highlight, setPosition);
  	}
  
- 	jQuery('<div id="tempstep">' 
- 				+ '<div id="close-button"></div>'
+ 	jQuery(	'<div id="tempstep">' 
+ 				// + '<div id="guide_close"></div>'
  				+ content
  				+ '<div id="guides_response_message"></div>'
- 				+ '<div id="buttons"></div>'
- 		  +'</div>'
+	 		+ '</div>'
+			// + '<div id="guides_buttons"></div>'
  	).dialog({
  		modal:true,
  		dialogClass: "techknow",
@@ -147,20 +147,27 @@ function Guide(){
  		position: { my: DialogPosition, at: DivsLocation, of: DOMref, collision: "none" },
  		open: function() {
  
+ 			var $tempstep = $("#tempstep");
+ 			// console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+ 			// console.log( "$tempstep: " );
+ 			// console.log( $tempstep );
+
+ 			// console.log( "$tempstep.parent(): " );
+ 			// console.log( $tempstep.parent() );
  
+ 			$tempstep.parent().append(function() {
+ 				return $('<div id="guide_button"></div>')
+ 			});
+ 				// .css("background-color", "red")
  			// Loop through buttons and make them do shit.
- 			_.each(buttons, function(i, key){
+ 			// _.each(buttons, function(i, key){
  
- 			})
+ 			// })
  
- 
- 
- 			try{ 
- 
+ 			try { 
  				var onOpen = this.getCurrentStepObj().onOpen;
  				eval(onOpen()); 
- 
- 			}catch(e){ }
+ 			} catch(e) { }
  
  			jQuery(document).keyup(function(e){
  
@@ -171,7 +178,7 @@ function Guide(){
  
  			});
  
- 			jQuery('#close-button').click(function(){
+ 			jQuery('#guide_close').click(function(){
  
  				this.properlyCloseGuides(DOMhighlighted);
  			});
