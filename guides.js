@@ -160,7 +160,7 @@ function Guide(){
  				console.error(e);
  			}
  
- 			jQuery(document).on("keyup",this,function(e){
+ 			jQuery(document).on("keyup",self,function(e){
  				if(e.keyCode == 27){
  					e.data.properlyClose(DOMhighlighted);
  				}
