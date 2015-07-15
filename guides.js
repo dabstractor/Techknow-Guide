@@ -87,6 +87,7 @@ function Guide(){
  
  	// // Input
  	var step 				 = this.getCurrentStepObj(); // Here
+ 	var self 				 = this; // keep this reference for callbacks
  
  	console.log(step);
  
@@ -130,11 +131,9 @@ function Guide(){
  	}
  
  	jQuery(	'<div id="tempstep">' 
- 				// + '<div id="guide_close"></div>'
  				+ content
  				+ '<div id="guides_response_message"></div>'
 	 		+ '</div>'
-			// + '<div id="guides_buttons"></div>'
  	).dialog({
  		modal:true,
  		dialogClass: "techknow",
@@ -146,58 +145,84 @@ function Guide(){
  		height: dialogHeight, 
  		position: { my: DialogPosition, at: DivsLocation, of: DOMref, collision: "none" },
  		open: function() {
- 
- 			var $tempstep = $("#tempstep");
- 			// console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
- 			// console.log( "$tempstep: " );
- 			// console.log( $tempstep );
 
- 			// console.log( "$tempstep.parent(): " );
- 			// console.log( $tempstep.parent() );
- 
- 			$tempstep.parent().append(function() {
- 				return $('<div id="guide_button"></div>')
- 			});
-			// .css("background-color", "red")
+ 			var $tempstep = $("#tempstep");
+ 			$tempstep.parent().append('<div id="guide_buttons"></div>');
+
  			// Loop through buttons and make them do shit.
  			// _.each(buttons, function(i, key){
  			// })
  
  			try { 
- 				var onOpen = this.getCurrentStepObj().onOpen;
+ 				var onOpen = self.getCurrentStepObj().onOpen;
  				eval(onOpen()); 
  			} catch(e) {
+ 				console.error(e);
  			}
  
- 			jQuery(document).keyup(function(e){
- 
+ 			jQuery(document).on("keyup",this,function(e){
  				if(e.keyCode == 27){
- 					this.properlyCloseGuides(DOMhighlighted);
+ 					e.data.properlyClose(DOMhighlighted);
  				}
- 
  			});
  
- 			$closeButton = jQuery(".ui-dialog-titlebar-close>span");
+ 			// begin sloppiness
+ 			$closeButton = jQuery(".techknow button.ui-button");
  			console.log( "$closeButton: " );
  			console.log( $closeButton );
+ 			// $closeButton = jQuery(".techknow .guide_close");
+ 			var buttonCSS = "background-image:url(" + chrome.extension.getURL("x.svg") + ")";
+ 			$closeButton
+	 			.replaceWith('<span class="guide_close" style=' + buttonCSS + '></span>');
+
+	 		console.log( "$closeButton: " );
+	 		console.log( $closeButton );
+
+	 		console.log( "this: " );
+	 		console.log( this );
+
+	 		jQuery(".guide_close").on("click",null,this,function(e) {
+	 				console.log("EL CLICKO!");
+	 				$(e.data).dialog("close");
+ 			});
+ 			// this whole section has been really sloppy and 
+ 			// needs to be rethought. but it should
+ 			// get the job done for now.
+
+ 			// console.log( "$closeButton: " );
+ 			// console.log( $closeButton );
 
  			// $closeButton
  			// 	.css("background-color", "red")
  			// console.log(chrome);
  			// console.log( 'chrome.extension.getURL("x.svg"): ' );
  			// console.log( chrome.extension.getURL('x.svg') );
- 			$closeButton.css("background-image", "url(" + chrome.extension.getURL("x.svg") + ")");
- 			$closeButton.click(function(){
- 				this.properlyCloseGuides(DOMhighlighted);
+
+ 			// var $button = jQuery(".ui-button-text");
+
+ 			// console.log( "$button: " );
+ 			// console.log( $button );
+ 			// $button.remove();
+
+ 			// in order to reference "this" inside of the event callback,
+ 			// we need to pass "this" as the second parameter
+ 			// to .on  and .click so that we can
+ 			// retrieve it as e.data, and use it
+ 			// just like we would "this"
+
+ 			$closeButton.on("click",self,function(e){
+ 				var that = e.data;
+ 				that.properlyClose(DOMhighlighted);
  			});
  
- 			jQuery(document).live("onchange",function(e){       
- 				this.properlyCloseGuides(DOMhighlighted);
+ 			jQuery(document).on("onchange",self,function(e){
+ 				var that = e.data;
+ 				that.properlyClose(DOMhighlighted);
  			});
 		 // render
  		},
  		close:function(){	
- 			this.deleteCookie(); 
+ 			self.deleteCookie(); 
  			jQuery(this).dialog('destroy');
  			jQuery(this).remove();	
  		} 
@@ -829,7 +854,7 @@ function Guide(){
 			}
 
 			jQuery(this).dialog('destroy').remove();
-			this.properlyCloseGuides();  
+			this.properlyClose();  
 
 		},
 		open: function() {
@@ -1008,3 +1033,38 @@ function Guide(){
  	return this.hasStep(this.getCurrentStep() + 1);
  };
 
+Guide.prototype.properlyClose = function() {
+    var step = this.stepcontainer[this.currentstep];
+    var $tempstep = jQuery('#tempstep')
+
+    try{
+        var onClose = step.onClose;
+        eval(onClose());
+    
+    } catch(e) {}
+
+    /// Reverse Style Changes
+	this.removeHighlight("*");
+    // this.removeAltaFocus("*");
+    // this.removeAllTransOverlay();
+    
+    // Remove Custom Events
+    this.deleteCookie();
+    // this.unbindListenEvents();
+    // this.userAction = false;
+    
+    // Fail-Safe
+    // this.done(true);
+    $tempstep.dialog('destroy');
+    $tempstep.remove();
+    
+    
+    var dialogStillOpen = jQuery(".ui-dialog:visible").length;
+    
+    if(dialogStillOpen){
+        var repositionedZIndex = 999;
+
+        jQuery(".ui-widget-overlay").css('z-index', repositionedZIndex);
+        jQuery(".ui-dialog:visible").css('z-index', 9999);
+    }
+}

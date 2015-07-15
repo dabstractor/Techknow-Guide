@@ -183,9 +183,7 @@
 //     top: 50%;
 //     width: 30px;
 // }
-.techknow_highlight {
-    z-index: 9000 !important;
-}
+
 // .techknow #tempstep {
 //     font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif !important;
 //     overflow: visible;
@@ -537,7 +535,7 @@
 // /* Overlays */
 .ui-widget-overlay {
 
-    position: absolute;
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
@@ -1214,10 +1212,9 @@
 //
 
 
-
-
-
-
+.techknow_highlight {
+    z-index: 9000 !important;
+}
 
 .techknow {
     // position: relative;
@@ -1239,41 +1236,51 @@
 
 
     position: absolute;
+    z-index: 9999;
+    outline: 0;
     // top: 0px;
     // left: 0px;
 
-    // .guide-close {
-    a.ui-dialog-titlebar-close {
+    // div.guide_close {
+    // // button.ui-dialog-titlebar-close {
+    //     position: absolute;
+    //     top: 0px;
+    //     right: 0px;
+    //     width: 22px;
+    //     height: 22px;
+    //     z-index: 9999;
+
+    span.guide_close {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 2px black;
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: -11px;
+        right: -11px;
+        // background: url(x.svg) norepeat -11px -11px; // has to be done in javascript to get chrome.extension.url()
+        // background-image: url(x.svg); // has to be done in javascript to get chrome.extension.url()
+        background-repeat: norepeat;
+        cursor: pointer;
+        transform: scale(1);
 
-        &>* {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            box-shadow: 1px 1px 2px black;
-            position: absolute;
-            top: -11px;
-            right: -11px;
-            // background: url(x.svg) norepeat -11px -11px;    
-            // background-image: url(x.svg);
-            background-repeat: norepeat;
-            cursor: pointer;
-            transform: scale(1);
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 0 !important;
+        letter-spacing: 0 !important;
 
-            &:hover {
-                transform: scale(1.04) translateX(-.5px) translateY(-.5px);
-                box-shadow: 1px 1px 3px black;
 
-                &:after {
-                    content: " ";
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(255,255,255,0.1);
-                    border-radius: 50%;
-                }
+        &:hover {
+            transform: scale(1.04) translateX(-0.5px) translateY(-0.5px);
+            box-shadow: 1px 1px 3px black;
+
+            &:after {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255,255,255,0.1);
+                border-radius: 50%;
             }
         }
 
@@ -1306,7 +1313,7 @@
         }
     }
 
-    .guide-content {
+    #tempstep {
         width: 100%;
         position: relative;
         height: 225px;
@@ -1314,7 +1321,7 @@
         overflow: hidden;
         box-sizing: border-box;
 
-        .guide-text-container {
+        &>p {
             // background-color: red;
             width: 77%;
             height: 65%;
@@ -1386,7 +1393,7 @@
         }
 
     }
-    .guide-nav-container {
+    .guide_buttons {
         display: block;
         position: absolute;
         height: 100%;

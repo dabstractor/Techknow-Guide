@@ -8,10 +8,6 @@
     position: relative;
     right: 2px;
 }*/
-.techknow_highlight {
-  z-index: 9000 !important;
-}
-
 /*.techknow #tempstep .ui-dialog .ui-dialog-titlebar {
     box-shadow: 0 0 0 0 #FFFFFF !important;
     position: relative !important;
@@ -58,7 +54,7 @@
     padding: 0.3em 1em 0.5em 0.4em !important;
 }*/
 .ui-widget-overlay {
-  position: absolute;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
@@ -71,6 +67,10 @@
 ----------------------------------*/
 /* Misc visuals
 ----------------------------------*/
+.techknow_highlight {
+  z-index: 9000 !important;
+}
+
 .techknow {
   width: 453px;
   height: 268px;
@@ -85,13 +85,10 @@
   -webkit-user-select: none;
   user-select: none;
   position: absolute;
+  z-index: 9999;
+  outline: 0;
 }
-.techknow a.ui-dialog-titlebar-close {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-.techknow a.ui-dialog-titlebar-close > * {
+.techknow span.guide_close {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -102,12 +99,16 @@
   background-repeat: norepeat;
   cursor: pointer;
   transform: scale(1);
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
 }
-.techknow a.ui-dialog-titlebar-close > *:hover {
+.techknow span.guide_close:hover {
   transform: scale(1.04) translateX(-0.5px) translateY(-0.5px);
   box-shadow: 1px 1px 3px black;
 }
-.techknow a.ui-dialog-titlebar-close > *:hover:after {
+.techknow span.guide_close:hover:after {
   content: " ";
   position: absolute;
   width: 100%;
@@ -115,12 +116,12 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 }
-.techknow a.ui-dialog-titlebar-close:active {
+.techknow span.guide_close:active {
   transform: scale(0.9);
   box-shadow: 1px 1px 3px black;
   box-shadow: 1px 1px 1px black;
 }
-.techknow a.ui-dialog-titlebar-close:active:after {
+.techknow span.guide_close:active:after {
   background-color: rgba(255, 64, 143, 0.2);
 }
 .techknow .ui-dialog-titlebar {
@@ -138,7 +139,7 @@
   padding: 9px 19px;
   color: #f4f4f4;
 }
-.techknow .guide-content {
+.techknow #tempstep {
   width: 100%;
   position: relative;
   height: 225px;
@@ -146,21 +147,21 @@
   overflow: hidden;
   box-sizing: border-box;
 }
-.techknow .guide-content .guide-text-container {
+.techknow #tempstep > p {
   width: 77%;
   height: 65%;
   margin: auto;
   margin-top: 5%;
   font-size: 14px;
 }
-.techknow .guide-content .guide-share-icons {
+.techknow #tempstep .guide-share-icons {
   margin: auto;
   width: 100%;
   text-align: center;
   position: absolute;
   bottom: 9px;
 }
-.techknow .guide-content .guide-share-icons > div {
+.techknow #tempstep .guide-share-icons > div {
   cursor: pointer;
   margin: 0 5px;
   width: 46px;
@@ -170,12 +171,12 @@
   border-radius: 50%;
   transition: all .5s ease;
 }
-.techknow .guide-content .guide-share-icons > div:hover {
+.techknow #tempstep .guide-share-icons > div:hover {
   transform: scale(1.02);
   box-shadow: -1px 1px 3px black, 1px -1px 3px black;
   transition: all 0.1s ease;
 }
-.techknow .guide-content .guide-share-icons > div:hover:after {
+.techknow #tempstep .guide-share-icons > div:hover:after {
   display: block;
   content: " ";
   width: 100%;
@@ -183,24 +184,24 @@
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.2);
 }
-.techknow .guide-content .guide-share-icons > div:active {
+.techknow #tempstep .guide-share-icons > div:active {
   transition: none;
   transform: scale(0.95);
   box-shadow: 0px 1px 2px black, 0px -1px 2px black;
 }
-.techknow .guide-content .guide-share-icons > div:active:after {
+.techknow #tempstep .guide-share-icons > div:active:after {
   background-color: rgba(190, 190, 190, 0.2);
 }
-.techknow .guide-content .guide-share-icons > div:nth-of-type(1) {
+.techknow #tempstep .guide-share-icons > div:nth-of-type(1) {
   background-image: url(icon-facebook.svg);
 }
-.techknow .guide-content .guide-share-icons > div:nth-of-type(2) {
+.techknow #tempstep .guide-share-icons > div:nth-of-type(2) {
   background-image: url(icon-twitter.svg);
 }
-.techknow .guide-content .guide-share-icons > div:nth-of-type(3) {
+.techknow #tempstep .guide-share-icons > div:nth-of-type(3) {
   background-image: url(icon-linkedin.svg);
 }
-.techknow .guide-nav-container {
+.techknow .guide_buttons {
   display: block;
   position: absolute;
   height: 100%;
@@ -208,74 +209,74 @@
   z-index: 1;
   width: 48px;
 }
-.techknow .guide-nav-container:hover {
+.techknow .guide_buttons:hover {
   cursor: pointer;
 }
-.techknow .guide-nav-container:hover .bar {
+.techknow .guide_buttons:hover .bar {
   visibility: visible;
   opacity: 1;
   transform: translateX(0%);
   transition: opacity .7s ease, transform .5s;
   transition-delay: 150ms;
 }
-.techknow .guide-nav-container:active .semi {
+.techknow .guide_buttons:active .semi {
   box-shadow: 0px 0px 6px black;
   width: 54px;
   height: 54px;
   top: 72px;
 }
-.techknow .guide-nav-container:active .semi img {
+.techknow .guide_buttons:active .semi img {
   height: 20px;
 }
-.techknow .guide-nav-container:active .bar {
+.techknow .guide_buttons:active .bar {
   background-color: rgba(30, 30, 30, 0.8);
 }
-.techknow .guide-nav-container.left {
+.techknow .guide_buttons.left {
   width: 78px;
   left: 0;
   overflow: hidden;
   padding-right: 76px;
 }
-.techknow .guide-nav-container.left .semi {
+.techknow .guide_buttons.left .semi {
   left: -24px;
   box-shadow: 1px 0px 8px black;
   border-radius: 0 50% 50% 0;
   border-left: 0;
 }
-.techknow .guide-nav-container.left .semi img {
+.techknow .guide_buttons.left .semi img {
   transform: scale(1.2) translateX(25px) rotateY(180deg);
 }
-.techknow .guide-nav-container.left .semi img:hover {
+.techknow .guide_buttons.left .semi img:hover {
   cursor: pointer;
 }
-.techknow .guide-nav-container.left .bar {
+.techknow .guide_buttons.left .bar {
   transform: translateX(-100%);
   left: 0px;
 }
-.techknow .guide-nav-container.left .bar span {
+.techknow .guide_buttons.left .bar span {
   right: 0;
 }
-.techknow .guide-nav-container.left:hover .bar {
+.techknow .guide_buttons.left:hover .bar {
   transform: translateX(0%);
 }
-.techknow .guide-nav-container.right {
+.techknow .guide_buttons.right {
   right: 0;
   overflow: hidden;
   padding-left: 76px;
 }
-.techknow .guide-nav-container.right .semi {
+.techknow .guide_buttons.right .semi {
   box-shadow: -1px 0px 8px black;
   margin-left: 10px;
   border-radius: 50% 0 0 50%;
   border-right: 0;
 }
-.techknow .guide-nav-container.right .semi img {
+.techknow .guide_buttons.right .semi img {
   transform: scale(1.2) translateX(9px);
 }
-.techknow .guide-nav-container.right .bar {
+.techknow .guide_buttons.right .bar {
   right: 0;
 }
-.techknow .guide-nav-container .semi {
+.techknow .guide_buttons .semi {
   background-color: #ffffff;
   border: 4px solid #00afff;
   width: 56px;
@@ -283,12 +284,12 @@
   position: relative;
   top: 71px;
 }
-.techknow .guide-nav-container .semi img {
+.techknow .guide_buttons .semi img {
   position: absolute;
   top: 17px;
   z-index: 2;
 }
-.techknow .guide-nav-container .bar {
+.techknow .guide_buttons .bar {
   position: absolute;
   top: 85px;
   font-size: 16px;
@@ -303,7 +304,7 @@
   transition: all .7s ease;
   transition-delay: 0.6s;
 }
-.techknow .guide-nav-container .bar span {
+.techknow .guide_buttons .bar span {
   position: absolute;
   top: -4px;
   padding: 10px 6px;
