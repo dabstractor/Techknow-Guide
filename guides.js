@@ -66,7 +66,6 @@ function Guide(){
  	this.play();
  	// C
  
- 
  	this.startTour();
  };
 
@@ -89,11 +88,7 @@ function Guide(){
  	var step 				 = this.getCurrentStepObj(); // Here
  	var self 				 = this; // keep this reference for callbacks
  
- 	console.log(step);
- 
- 
- 	console.log(this);
- 
+
  	var referenceid 		 = step.refid;	
  	var title 				 = step.title;
  	var content 			 = step.content;
@@ -122,11 +117,10 @@ function Guide(){
  	var DOMscroll 			 = jQuery(scrollToElement);
  	var buttons 			 = this.getStepButtons();
  	var elementHeight;
- 
  	// Work Stage
  	this.setRenderStage();
  
- 	if(highlight){
+ 	if(this.hasHighlight()){
  		this.highlight(DOMhighlighted, highlight, setPosition);
  	}
  
@@ -135,9 +129,9 @@ function Guide(){
  				+ '<div id="guides_response_message"></div>'
 	 		+ '</div>'
  	).dialog({
- 		modal:true,
+ 		modal: true,
  		dialogClass: "techknow",
- 		autoOpen:true,
+ 		autoOpen: true,
  		title: title,
  		draggable: false,
  		resizable: false,
@@ -146,12 +140,72 @@ function Guide(){
  		position: { my: DialogPosition, at: DivsLocation, of: DOMref, collision: "none" },
  		open: function() {
 
+ 			console.log( "buttons: " );
+ 			console.log( buttons );
+
+ 			console.log( "self: " );
+ 			console.log( self );
+
  			var $tempstep = $("#tempstep");
- 			$tempstep.parent().append('<div id="guide_buttons"></div>');
 
  			// Loop through buttons and make them do shit.
  			// _.each(buttons, function(i, key){
  			// })
+
+			for (var i=0;i<buttons.length;i++) {
+				console.log( "buttons["+i+"]: " );
+				console.log( buttons[i] );
+				if (buttons[i].id == "guide_next_button" || buttons[i].id == "guide_back_button") {
+					var $button = $(
+						'<div>'
+							+ '<div class="semi">' 
+								+ '<img src="' + chrome.extension.getURL("arrow.svg") + '">'
+							+ '</div>'
+							+ '<div class="bar">'
+								+ '<div><span>'
+									+ buttons[i].text
+								+ '</span></div>'
+							+ '</div>'
+						+ '</div>'
+					);
+				} else {
+					var $button = $("<div></div>");
+				}
+				$button
+					.addClass( buttons[i].class || "" )
+					.attr("id", buttons[i].id || "")
+					.insertBefore($tempstep);
+
+
+				// var listeners = ["click","open","close"];
+
+				// console.log( "$button: " );
+				// console.log( $button );
+
+				// for (var j=0;j<listeners.length;j++) {
+				// 	// console.log( "buttons[i]: " );
+				// 	// console.log( buttons[i] );
+				// 	// console.log( "[listeners[j]]: " );
+				// 	// console.log( [listeners[j]] );
+				// 	// console.log( "buttons[i][listeners[j]]: " );
+				// 	// console.log( buttons[i][listeners[j]] );
+				// 	if(typeof buttons[i][listeners[j]] != "undefined") { 
+				// 		console.log( "$button: " );
+				// 		console.log( $button );
+				// 		console.log( "listeners[j]: " );
+				// 		console.log( listeners[j] );
+				// 		$button.on(listeners[j],null,self,$button[listeners[j]]); // pass a reference to the Guide object while we're at it
+				// 	}
+				// }
+
+
+				if(typeof buttons[i].click != "undefined") { 
+					console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					console.log( "$button: " );
+					console.log( $button );
+					$button.on("click.nav.TECHKNOW",null,self,buttons[i].click); // pass a reference to the Guide object while we're at it
+				}
+			}
  
  			try { 
  				var onOpen = self.getCurrentStepObj().onOpen;
@@ -160,49 +214,29 @@ function Guide(){
  				console.error(e);
  			}
  
- 			jQuery(document).on("keyup",self,function(e){
- 				if(e.keyCode == 27){
+ 			jQuery(document).on("keyup", self, function(e) {
+ 				if(e.keyCode == 27) {
  					e.data.properlyClose(DOMhighlighted);
  				}
  			});
  
  			// begin sloppiness
  			$closeButton = jQuery(".techknow button.ui-button");
- 			console.log( "$closeButton: " );
- 			console.log( $closeButton );
- 			// $closeButton = jQuery(".techknow .guide_close");
- 			var buttonCSS = "background-image:url(" + chrome.extension.getURL("x.svg") + ")";
- 			$closeButton
-	 			.replaceWith('<span class="guide_close" style=' + buttonCSS + '></span>');
+ 			var buttonCSS = {"background-image":"url(" + chrome.extension.getURL("x.svg") + ")"};
+ 			$closeButton.hide()
+ 			$('<span class="guide_close" style=' + buttonCSS + '></span>').insertBefore($closeButton);
 
-	 		console.log( "$closeButton: " );
-	 		console.log( $closeButton );
 
-	 		console.log( "this: " );
-	 		console.log( this );
-
-	 		jQuery(".guide_close").on("click",null,this,function(e) {
-	 				console.log("EL CLICKO!");
-	 				$(e.data).dialog("close");
- 			});
+	 		jQuery(".guide_close")
+	 			.css(buttonCSS)
+		 		.on("click",null,this,function(e) {
+		 			$(e.data).dialog("close");
+	 			});
  			// this whole section has been really sloppy and 
  			// needs to be rethought. but it should
  			// get the job done for now.
 
- 			// console.log( "$closeButton: " );
- 			// console.log( $closeButton );
 
- 			// $closeButton
- 			// 	.css("background-color", "red")
- 			// console.log(chrome);
- 			// console.log( 'chrome.extension.getURL("x.svg"): ' );
- 			// console.log( chrome.extension.getURL('x.svg') );
-
- 			// var $button = jQuery(".ui-button-text");
-
- 			// console.log( "$button: " );
- 			// console.log( $button );
- 			// $button.remove();
 
  			// in order to reference "this" inside of the event callback,
  			// we need to pass "this" as the second parameter
@@ -210,21 +244,20 @@ function Guide(){
  			// retrieve it as e.data, and use it
  			// just like we would "this"
 
- 			$closeButton.on("click",self,function(e){
- 				var that = e.data;
- 				that.properlyClose(DOMhighlighted);
+ 			$closeButton.on("click",null,self,function(e){
+ 				e.data.properlyClose(DOMhighlighted);
  			});
  
- 			jQuery(document).on("onchange",self,function(e){
- 				var that = e.data;
- 				that.properlyClose(DOMhighlighted);
+ 			jQuery(document).on("onchange",null,self,function(e){
+ 				e.data.properlyClose(DOMhighlighted);
  			});
 		 // render
  		},
  		close:function(){	
- 			self.deleteCookie(); 
- 			jQuery(this).dialog('destroy');
- 			jQuery(this).remove();	
+ 			self.properlyClose(); // HEY JIM! I think this is all I need here but please correct me if I'm wrong
+ 			// self.deleteCookie(); 
+ 			// jQuery(this).dialog('destroy');
+ 			// jQuery(this).remove();	
  		} 
  
  	});
@@ -522,12 +555,13 @@ function Guide(){
  ******************************************************************/
  
  Guide.prototype.highlight = function(referenceid, highlight, position){
+ 	var referenceid = referenceid || this.getCurrentStepObj().referenceid;
  	if(typeof(position) != "undefined"){
  		var position = position.toString();
  		referenceid.css("position", position);
  	}
  
- 	if(highlight){
+ 	if(this.hasHighlight()){
  		referenceid.addClass('techknow_highlight');
  	} else {
  		referenceid.css("position", "");
@@ -536,9 +570,9 @@ function Guide(){
  };
  
  Guide.prototype.toggleHighlight = function(referenceid, position){
- 	var referenceid = referenceid || "j";
+ 	var referenceid = referenceid || this.getCurrentStepObj().referenceid;
  	
- 	if(highlight){
+ 	if(this.hasHighlight()){
  		referenceid.addClass('techknow_highlight');
  	} else {
  		referenceid.css("position", "");
@@ -547,13 +581,19 @@ function Guide(){
  };
  
  Guide.prototype.addHighlight = function(ref) {
+ 	var ref = ref || this.getCurrentStepObj().referenceid;
  	jQuery(ref).addClass("techknow-highlight");
  };
  
  Guide.prototype.removeHighlight = function(ref) {
+ 	var ref = ref || this.getCurrentStepObj().referenceid;
  	jQuery(ref).removeClass("techknow-highlight");
  };
 
+ Guide.prototype.hasHighlight = function(ref) {
+ 	var ref = ref || this.getCurrentStepObj().referenceid;
+ 	return jQuery(ref).hasClass("techknow-highlight");
+ }
 /************************ getStepButtons *******************************  
  *
  *  Controls highlighting operations of the system
@@ -569,18 +609,38 @@ function Guide(){
      
  	var buttons = [];
 
- 	if(this.userAction === false) {
+ 	console.log( "this.userAction: " );
+ 	console.log( this.userAction );
+ 	if(!this.userAction) { // todo fixme HEY JIM! this used to say "this.userAction === false" but it was failing
+ 							// because this.userAction was undefined, not false.
+ 							// I'm not sure what the purpose of userAction is,
+ 							// so I I'm leaving it like this
 
- 		if(this.stepNeedsContinueButton())
- 			button.push(this.renderContinueButton());
- 		if(this.stepNeedsNextButton())
- 			button.push(this.renderNextButton());
- 		if(this.stepNeedsBackButton())
- 			button.push(this.renderBackButton());
- 		if(this.stepNeedsFinishButton())
- 			button.push(this.renderFinishButton());
+ 		if(this.stepNeedsContinueButton()) {
+ 			buttons.push(this.renderContinueButton());
+ 		}
+ 		if(this.stepNeedsNextButton()) {
+ 			buttons.push(this.renderNextButton());
+ 		}
+ 		if(this.stepNeedsBackButton()) {
+ 			buttons.push(this.renderBackButton());
+ 		}
+ 		if(this.stepNeedsFinishButton()) {
+ 			buttons.push(this.renderFinishButton());
+ 		}
 	} 
 
+	console.log( "this.stepNeedsContinueButton(): " );
+	console.log( this.stepNeedsContinueButton() );
+	console.log( "this.stepNeedsNextButton(): " );
+	console.log( this.stepNeedsNextButton() );
+	console.log( "this.stepNeedsBackButton(): " );
+	console.log( this.stepNeedsBackButton() );
+	console.log( "this.stepNeedsFinishButton(): " );
+	console.log( this.stepNeedsFinishButton() );
+
+	console.log( "buttons from getStepButtons: " );
+	console.log( buttons );
 	return buttons;
 
  };
@@ -838,10 +898,11 @@ function Guide(){
  Guide.prototype.renderFinishButton = function() {
 	return {
 		text: "Finish", 
-		class: 'guide_fin button-style',
+		id: "guide_finish_button",
+		class: "guide_fin button-style",
 		click: function() {
 
-			if (highlight) {
+			if (this.hasHighlight()) {
 				this.highlight(DOMhighlighted, false);
 			}
 			
@@ -874,26 +935,31 @@ function Guide(){
 
  Guide.prototype.renderNextButton = function() {
 
-	return {
+	ret = {
 		text: "Next", 
-		id: 'next_button',
-		class: 'guide_next button-style',
-		click: function() {
-
-			if (highlight) {
+		id: 'guide_next_button',
+		class: 'guide_button right',
+		click: function(e) {
+			var self = e.data;
+			if (self.hasHighlight()) {
 				guides.highlight(DOMhighlighted, false);
 			}
 
-			if(!guides.playing){	
+			console.log( "self: " );
+			console.log( self );
+			if(!self.playing){	
 				try{ 
-					var faction = guides.stepcontainer[guides.currentstep].faction;
+					var faction = self.stepcontainer[self.currentstep].faction;
 					eval(faction()); 
-				}catch(e){ }
-				guides.currentstep = guides.currentstep + 1;
+				}catch(e){
+					console.error(e);
+				}
+				self.currentstep = self.currentstep + 1;
 			}
 
-			guides.play();
-			guides.next(guides.currentstep);	
+			self.play();
+			self.render(); //todo fixme HEY JIM! I'm not sure if this should be here, or how to fix the next line
+			// this.next(guides.currentstep);	
 
 		},
 		open: function() {
@@ -907,19 +973,22 @@ function Guide(){
 
 			}
 
-		},
+		}
 	}
+	console.log( "ret: " );
+	console.log( ret );
+	return ret;
  };
 
 
  Guide.prototype.renderContinueButton = function() {
  	return {
  		text: "Continue Tour", 
- 		id: 'next_button',
- 		class: 'guide_prev button-style',
+ 		id: 'guide_continue_button',
+		class: 'guide_button left',
  		click: function() {
  
- 			if (highlight) {
+ 			if (this.hasHighlight()) {
  				this.highlight(DOMhighlighted, false);
  			}
  
@@ -942,12 +1011,12 @@ function Guide(){
  Guide.prototype.renderBackButton = function() {
  	return {
  		text: "Back", 
- 		id: 'back_button',
+ 		id: 'guide_back_button',
  		class: 'guide_back button-style',
  		click: function() {
  
  
- 		if (highlight) {
+ 		if (this.hasHighlight()) {
  			this.highlight(DOMhighlighted, false);
  		}
  
@@ -1004,16 +1073,31 @@ function Guide(){
 
  ******************************************************************/
 
+ Guide.prototype.removeNextButton = function() {
+ 	var step = this.getCurrentStepObj();
+ 	return (typeof(step.removeNextButton)!='undefined') ? step.removeNextButton : false;
+ }
+
+ Guide.prototype.removePreviousButton = function() {
+ 	var step = this.getCurrentStepObj();
+ 	return (typeof(step.removePreviousButton)!='undefined') ? step.removePreviousButton : false;
+ }
+
+ Guide.prototype.removeFinishButton = function() {
+ 	var step = this.getCurrentStepObj();
+ 	return (typeof(step.removeFinishButton)!='undefined') ? step.removeFinishButton : false;
+ }
+
  Guide.prototype.stepNeedsNextButton = function() {
- 	return ( this.isPastStep(-1) && this.hasNextStep() && !removeNextButton && !this.currentGuideIsTypeOnStep("tour",0) );
+ 	return ( this.isPastStep(-1) && this.hasNextStep() && this.removeNextButton() && !this.currentGuideIsTypeOnStep("tour",0) );
  };
 
- Guide.prototype.stepNeedsPreviousButton = function() {
- 	return (this.isPastStep(0) && this.hasCurrentStep() && !removePreviousButton);
+ Guide.prototype.stepNeedsBackButton = function() {
+ 	return (this.isPastStep(0) && this.hasCurrentStep() && this.removePreviousButton());
  };
  
  Guide.prototype.stepNeedsFinishButton = function() {
- 	return (this.isPastStep(0) && !this.hasNextStep() && !removeFinishButton);
+ 	return (this.isPastStep(0) && !this.hasNextStep() && this.removeFinishButton());
  };
 
  Guide.prototype.stepNeedsContinueButton = function() {
