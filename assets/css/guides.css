@@ -201,7 +201,7 @@
 .techknow #tempstep .guide-share-icons > div:nth-of-type(3) {
   background-image: url(icon-linkedin.svg);
 }
-.techknow .guide_buttons {
+.techknow .guide_button {
   display: block;
   position: absolute;
   height: 100%;
@@ -209,74 +209,74 @@
   z-index: 1;
   width: 48px;
 }
-.techknow .guide_buttons:hover {
+.techknow .guide_button:hover {
   cursor: pointer;
 }
-.techknow .guide_buttons:hover .bar {
+.techknow .guide_button:hover .bar {
   visibility: visible;
   opacity: 1;
   transform: translateX(0%);
   transition: opacity .7s ease, transform .5s;
   transition-delay: 150ms;
 }
-.techknow .guide_buttons:active .semi {
+.techknow .guide_button:active .semi {
   box-shadow: 0px 0px 6px black;
   width: 54px;
   height: 54px;
   top: 72px;
 }
-.techknow .guide_buttons:active .semi img {
+.techknow .guide_button:active .semi img {
   height: 20px;
 }
-.techknow .guide_buttons:active .bar {
+.techknow .guide_button:active .bar {
   background-color: rgba(30, 30, 30, 0.8);
 }
-.techknow .guide_buttons.left {
+.techknow .guide_button.left {
   width: 78px;
   left: 0;
   overflow: hidden;
   padding-right: 76px;
 }
-.techknow .guide_buttons.left .semi {
+.techknow .guide_button.left .semi {
   left: -24px;
   box-shadow: 1px 0px 8px black;
   border-radius: 0 50% 50% 0;
   border-left: 0;
 }
-.techknow .guide_buttons.left .semi img {
+.techknow .guide_button.left .semi img {
   transform: scale(1.2) translateX(25px) rotateY(180deg);
 }
-.techknow .guide_buttons.left .semi img:hover {
+.techknow .guide_button.left .semi img:hover {
   cursor: pointer;
 }
-.techknow .guide_buttons.left .bar {
+.techknow .guide_button.left .bar {
   transform: translateX(-100%);
   left: 0px;
 }
-.techknow .guide_buttons.left .bar span {
+.techknow .guide_button.left .bar span {
   right: 0;
 }
-.techknow .guide_buttons.left:hover .bar {
+.techknow .guide_button.left:hover .bar {
   transform: translateX(0%);
 }
-.techknow .guide_buttons.right {
+.techknow .guide_button.right {
   right: 0;
   overflow: hidden;
   padding-left: 76px;
 }
-.techknow .guide_buttons.right .semi {
+.techknow .guide_button.right .semi {
   box-shadow: -1px 0px 8px black;
   margin-left: 10px;
   border-radius: 50% 0 0 50%;
   border-right: 0;
 }
-.techknow .guide_buttons.right .semi img {
+.techknow .guide_button.right .semi img {
   transform: scale(1.2) translateX(9px);
 }
-.techknow .guide_buttons.right .bar {
+.techknow .guide_button.right .bar {
   right: 0;
 }
-.techknow .guide_buttons .semi {
+.techknow .guide_button .semi {
   background-color: #ffffff;
   border: 4px solid #00afff;
   width: 56px;
@@ -284,12 +284,12 @@
   position: relative;
   top: 71px;
 }
-.techknow .guide_buttons .semi img {
+.techknow .guide_button .semi img {
   position: absolute;
   top: 17px;
   z-index: 2;
 }
-.techknow .guide_buttons .bar {
+.techknow .guide_button .bar {
   position: absolute;
   top: 85px;
   font-size: 16px;
@@ -304,7 +304,7 @@
   transition: all .7s ease;
   transition-delay: 0.6s;
 }
-.techknow .guide_buttons .bar span {
+.techknow .guide_button .bar span {
   position: absolute;
   top: -4px;
   padding: 10px 6px;

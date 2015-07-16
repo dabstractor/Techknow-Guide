@@ -1393,7 +1393,7 @@
         }
 
     }
-    .guide_buttons {
+    .guide_button {
         display: block;
         position: absolute;
         height: 100%;
@@ -1431,7 +1431,6 @@
         }
 
         &.left {
-
             width: 78px;
             left: 0;
             overflow: hidden;
