@@ -35,6 +35,7 @@
 			// "jQuery1-7-min.js",
 			// "jQuery-UI-min.js",
 			"jsonfn.js",
+			"helpers.js",
 			"guides.js",
 			"content.js"
 		],
@@ -46,6 +47,8 @@
 		]
 	}],
 	"web_accessible_resources": [
-		"x.svg"
+		"x.svg",
+		"semi.svg",
+		"arrow.svg"
 	]
 }
